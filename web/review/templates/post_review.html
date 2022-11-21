@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Блог|Оставить отзыв
+{% endblock %}
+
+{% block main %}
+
+    <h1 align="center">Оставить отзыв</h1>
+    <br>
+
+<div align="center">
+
+
+    <h3><span> {{ error }}</span></h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.firstName }}<br>
+    {{ form.lastName }}<br>
+    {{ form.birth }}<br>
+    {{ form.grade }}<br>
+    {{ form.text }}<br>
+     <button type="submit" class="btn btn-warning" class="form-control">Отправить отзыв</button>
+</form>
+
+
+
+{% comment %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Имя" class="form-control"><br>
+        <input type="text" placeholder="Фамилия" class="form-control"><br>
+        <input type="date" placeholder="Дата рождения" class="form-control"><br>
+        <input type="number" placeholder="Оценка от 1 до 10" class="form-control"><br>
+        <textarea placeholder="Введите ваш отзыв..." class="form-control"></textarea><br>
+        <button type="submit" class="btn btn-warning" class="form-control">Отправить отзыв</button>
+    </form>
+{% endcomment %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Блог|Читать отзывы
+{% endblock %}
+
+{% block main %}
+    <h1 align="center">Отзывы</h1>
+    <br>
+
+    {% for item in reviews %}
+
+
+    <br>
+
+        <div class="card text-center" style="margin-left: 200px; margin-right: 200px;" style="color: black;">
+          <div class="card-header" style="color: black;">
+              <h3>Отзыв №{{ item.id }}</h3>
+          </div>
+          <div class="card-body" style="color: black;">
+            <h5 class="card-title" style="color: black;">Отзыв оставил(а) {{ item.firstName }} {{ item.lastName }}</h5>
+            {% autoescape on %}
+            <p class="card-text" style="color: black;">{{ item.text|linebreaksbr }}</p>
+            {% endautoescape %}
+
+             <a href="{% url 'home' %}" class="btn btn-primary">Назад</a>
+
+          </div>
+          <div class="card-footer text-muted" style="color: black;">
+              {{ news_item.date }}
+          </div>
+        </div>
+        <br>
+        <br>
+
+    {% endfor %}
+{% endblock %}
